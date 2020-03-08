@@ -20,4 +20,15 @@ class AppResources {
             UIColor(red: 241/255, green: 21/255, blue: 43/255, alpha: 1.0)
         }
     }
+
+    class Stylesheet {
+        static var defaultButton: UIButtonStyle {
+            var style = UIButtonStyle()
+            style.viewStyle = UIViewStyle(backgroundColor: AppResources.Colors.crimson)
+            style.setTitleColor(.white)
+            style.setLabelStyle(UILabelStyle(font: .boldSystemFont(ofSize: 18), textColor: .white))
+            style.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+            return style
+        }
+    }
 }

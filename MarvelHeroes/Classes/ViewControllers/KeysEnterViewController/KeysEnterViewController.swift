@@ -73,7 +73,7 @@ class KeysEnterViewController: UIViewController {
         let nextButton = UIButton(type: .system)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nextButton)
-        Style.nextButton.apply(on: nextButton)
+        AppResources.Stylesheet.defaultButton.apply(on: nextButton)
         nextButton.setTitle(Resources.nextButtonTitle, for: .normal)
         nextButton.addTarget(self, action: #selector(KeysEnterViewController.nextButtonTouchUp), for: .touchUpInside)
         nextButton.top(constant: Metrics.nextButtonTop, view: publicKeyTextField)
@@ -126,9 +126,6 @@ class KeysEnterViewController: UIViewController {
                     autocapitalizationType: UITextAutocapitalizationType.none,
                     autocorrectionType: .no
             )
-        }
-        static var nextButton: UIButtonStyle {
-            UIButtonStyle(withViewStyle: UIViewStyle(withTintColor: AppResources.Colors.crimson))
         }
     }
 }

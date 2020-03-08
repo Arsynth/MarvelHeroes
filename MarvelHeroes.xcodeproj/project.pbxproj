@@ -11,6 +11,7 @@
 		1024209A3C4670E594742705 /* UITextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024230024D912156C09BBBD /* UITextFieldStyle.swift */; };
 		102420E24CFCC9EEC1B31C13 /* UIButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102424A8396A7E781EF90EEC /* UIButtonStyle.swift */; };
 		102421651CF320BE84CB023E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242CF2F2B40B5552659984 /* SceneDelegate.swift */; };
+		102421E7B19FF0C9FF4A18C5 /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102424F65B5CB3E5AA5D8253 /* CharacterListCell.swift */; };
 		102422CC7AAA467CA0CCEB85 /* UIViewController+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024202F38D5401C71C4C9ED /* UIViewController+Container.swift */; };
 		102422E914E07C3956188AD8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102425711849F1019A89793D /* Character.swift */; };
 		10242342C95D94CAB753861A /* MarvelAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024253CC984B48FD09E6172 /* MarvelAPIAdapter.swift */; };
@@ -20,20 +21,22 @@
 		10242581CFB03723B1018BF7 /* MarvelHeroes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 102426C08156FA260679DD47 /* MarvelHeroes.xcdatamodeld */; };
 		102425A61044126B21207341 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024213C57DCCEDCDDC31F10 /* UIView+Autolayout.swift */; };
 		102425C868F9F3A5C3DE71B4 /* UILabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242A2715B07B40A360873F /* UILabelStyle.swift */; };
+		102425EE796EE886C29985AF /* CommentEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102427ED45374D1D35F00C6D /* CommentEditorViewController.swift */; };
 		10242709A90A19C7BF756DA3 /* AppResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024228EE605B388CF7C5F4D /* AppResources.swift */; };
+		10242715C175E2D60122E36E /* CharacterListCellCommentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102424C2D7A8368F3F86D499 /* CharacterListCellCommentPanel.swift */; };
 		1024279459369BD7D817575C /* MarvelHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242B68ECB016F9C9EEB668 /* MarvelHeroesTests.swift */; };
 		1024279CAC4F3F2372931EED /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102428A69935C909BEE2398A /* CharacterListViewController.swift */; };
 		102427F8A51F9A32FC6AD7F9 /* DebugKeyStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242752A1F41C89AD47DEAE /* DebugKeyStoreManager.swift */; };
 		1024284832BA82320FB48AE2 /* NSManagedObject+EntityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242D8D816F3376B9E481CD /* NSManagedObject+EntityName.swift */; };
 		1024286C19A5969DE3A10E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10242F0776E060FCEF72C716 /* LaunchScreen.storyboard */; };
 		102428D1BB972B730921659F /* UIViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242AFBF4BD2F0B332BF653 /* UIViewStyle.swift */; };
+		102429F3C9C1244182587D15 /* CharacterListCommentSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242DA540EB20F25CC4E0A2 /* CharacterListCommentSynchronizer.swift */; };
 		10242A1D4585E85CB0303634 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242103DD59B3E893841BF4 /* Stylesheet.swift */; };
 		10242AF0D1D85DF4BDB76B87 /* KeysEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242949FF540940BDD5FB6D /* KeysEnterViewController.swift */; };
 		10242B608170FC5A1660061A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102425B18155F41A8BEDA872 /* Assets.xcassets */; };
 		10242C141B92F9C2B18B0DAB /* ResponsePageCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102427720A170B6DFF3A29DA /* ResponsePageCollector.swift */; };
 		10242C9D8668C75EADF0ACD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102421F75A92005DBA7F39A8 /* AppDelegate.swift */; };
 		10242CAE5458513DD0CFE8E0 /* CharacterListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102425C4D5D6EA044E427775 /* CharacterListResponse.swift */; };
-		10242DC3FE816EB97D755E51 /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242EB185E1364436A0ADFF /* CharacterListCell.swift */; };
 		10242E103503B773EE1BB550 /* Dictionary+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242F112523309FD72DD978 /* Dictionary+Additions.swift */; };
 		3C7C46AB09E8C9981F2DBF5F /* Pods_MarvelHeroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2F8742381C47074BAFE54B /* Pods_MarvelHeroesTests.framework */; };
 		94BF5004CB71BADB013BC47C /* Pods_MarvelHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75D2D6A9AFE850435675933 /* Pods_MarvelHeroes.framework */; };
@@ -63,12 +66,15 @@
 		1024240B270C3E75AD7585DC /* UIView+FrameLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FrameLayout.swift"; sourceTree = "<group>"; };
 		10242454492AC35CFDF2ECB4 /* MarvelHeroes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelHeroes.xcdatamodel; sourceTree = "<group>"; };
 		102424A8396A7E781EF90EEC /* UIButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonStyle.swift; sourceTree = "<group>"; };
+		102424C2D7A8368F3F86D499 /* CharacterListCellCommentPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListCellCommentPanel.swift; sourceTree = "<group>"; };
+		102424F65B5CB3E5AA5D8253 /* CharacterListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
 		1024253CC984B48FD09E6172 /* MarvelAPIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelAPIAdapter.swift; sourceTree = "<group>"; };
 		102425711849F1019A89793D /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		102425B18155F41A8BEDA872 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		102425C4D5D6EA044E427775 /* CharacterListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListResponse.swift; sourceTree = "<group>"; };
 		10242752A1F41C89AD47DEAE /* DebugKeyStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugKeyStoreManager.swift; sourceTree = "<group>"; };
 		102427720A170B6DFF3A29DA /* ResponsePageCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsePageCollector.swift; sourceTree = "<group>"; };
+		102427ED45374D1D35F00C6D /* CommentEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentEditorViewController.swift; sourceTree = "<group>"; };
 		102428127DB001AA656AA66C /* CharacterListCollectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListCollectionManager.swift; sourceTree = "<group>"; };
 		102428A69935C909BEE2398A /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		10242949FF540940BDD5FB6D /* KeysEnterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysEnterViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +87,7 @@
 		10242CBD80AB44F6DEB3F118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		10242CF2F2B40B5552659984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		10242D8D816F3376B9E481CD /* NSManagedObject+EntityName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+EntityName.swift"; sourceTree = "<group>"; };
-		10242EB185E1364436A0ADFF /* CharacterListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
+		10242DA540EB20F25CC4E0A2 /* CharacterListCommentSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListCommentSynchronizer.swift; sourceTree = "<group>"; };
 		10242F112523309FD72DD978 /* Dictionary+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Additions.swift"; sourceTree = "<group>"; };
 		46CB01151123ED4A74379E34 /* Pods-MarvelHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.release.xcconfig"; sourceTree = "<group>"; };
 		9EE31282755937E596E9FCF9 /* Pods-MarvelHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 				102428A691A8038C425F47BD /* KeysEnterViewController */,
 				1024263CD49C88DE1C3E679C /* CharacterListViewController */,
 				10242A5E249D891FC33539DF /* Common */,
+				10242335A2B07563D270FB19 /* CommetEditorViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,12 +206,30 @@
 			path = MarvelHeroesTests;
 			sourceTree = "<group>";
 		};
+		10242335A2B07563D270FB19 /* CommetEditorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				102427ED45374D1D35F00C6D /* CommentEditorViewController.swift */,
+			);
+			path = CommetEditorViewController;
+			sourceTree = "<group>";
+		};
+		102425F750225B038A792CB4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				102424F65B5CB3E5AA5D8253 /* CharacterListCell.swift */,
+				102424C2D7A8368F3F86D499 /* CharacterListCellCommentPanel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		1024263CD49C88DE1C3E679C /* CharacterListViewController */ = {
 			isa = PBXGroup;
 			children = (
 				102428A69935C909BEE2398A /* CharacterListViewController.swift */,
-				10242EB185E1364436A0ADFF /* CharacterListCell.swift */,
 				102428127DB001AA656AA66C /* CharacterListCollectionManager.swift */,
+				10242DA540EB20F25CC4E0A2 /* CharacterListCommentSynchronizer.swift */,
+				102425F750225B038A792CB4 /* Cell */,
 			);
 			path = CharacterListViewController;
 			sourceTree = "<group>";
@@ -514,9 +539,12 @@
 				10242CAE5458513DD0CFE8E0 /* CharacterListResponse.swift in Sources */,
 				10242C141B92F9C2B18B0DAB /* ResponsePageCollector.swift in Sources */,
 				10242E103503B773EE1BB550 /* Dictionary+Additions.swift in Sources */,
-				10242DC3FE816EB97D755E51 /* CharacterListCell.swift in Sources */,
 				102423A9F7647F79CEB2BA61 /* NSAttributedString+BoundingSize.swift in Sources */,
 				10242012ACF35EE4D07DD600 /* CharacterListCollectionManager.swift in Sources */,
+				102429F3C9C1244182587D15 /* CharacterListCommentSynchronizer.swift in Sources */,
+				102421E7B19FF0C9FF4A18C5 /* CharacterListCell.swift in Sources */,
+				10242715C175E2D60122E36E /* CharacterListCellCommentPanel.swift in Sources */,
+				102425EE796EE886C29985AF /* CommentEditorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

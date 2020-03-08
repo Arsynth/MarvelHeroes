@@ -12,6 +12,9 @@ class CharacterListCell: UICollectionViewCell {
     let iconView = UIImageView()
     let nameLabel = UILabel()
     let descriptionLabel = UILabel()
+    let commentPanel = CharacterListCellCommentPanel()
+
+    var commentDidTapBlock: ()->() = {}
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +25,10 @@ class CharacterListCell: UICollectionViewCell {
         Style.nameLabel.apply(on: nameLabel)
         contentView.addSubview(descriptionLabel)
         Style.descriptionLabel.apply(on: descriptionLabel)
+        contentView.addSubview(commentPanel)
+        commentPanel.didTapBlock = { [weak self] in
+            self?.commentDidTapBlock()
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -48,6 +55,10 @@ class CharacterListCell: UICollectionViewCell {
         descriptionLabel.sizeToFit(withStaticWidth: remainingWidth)
         descriptionLabel.make(fromView: nameLabel, bottom: Metrics.descriptionLabelTop)
         descriptionLabel.make(fromView: iconView, right: Metrics.labelsLeft)
+
+        commentPanel.make(width: bounds.size.width)
+        commentPanel.make(height: CharacterListCellCommentPanel.Metrics.height(withComment: commentPanel.comment, maxWidth: commentPanel.getWidth()))
+        commentPanel.make(bottom: 0)
     }
 
     public func configure(withCharacter character: Character) {
@@ -60,6 +71,7 @@ class CharacterListCell: UICollectionViewCell {
 
         nameLabel.text = character.name
         descriptionLabel.text = character.description
+        commentPanel.comment = character.comment
     }
 
     override func prepareForReuse() {
@@ -68,11 +80,11 @@ class CharacterListCell: UICollectionViewCell {
         iconView.image = nil
     }
 
-    class Style {
-        fileprivate static var nameLabel: UILabelStyle {
+    private class Style {
+        static var nameLabel: UILabelStyle {
             UILabelStyle(font: .boldSystemFont(ofSize: 14), numberOfLines: 1)
         }
-        public static var descriptionLabel: UILabelStyle {
+        static var descriptionLabel: UILabelStyle {
             UILabelStyle(font: .systemFont(ofSize: 14), numberOfLines: 3)
         }
     }
@@ -83,7 +95,7 @@ class CharacterListCell: UICollectionViewCell {
         fileprivate static let descriptionLabelTop = CGFloat(8)
         fileprivate static let labelsLeft = CGFloat(8)
 
-        public static func height(withMaxWidth maxWidth: CGFloat, name: String, description: String) -> CGFloat {
+        public static func height(withCharacter character: Character, maxWidth: CGFloat) -> CGFloat {
             let remainingWidth = maxWidth -
                     internalInsets.left -
                     internalInsets.right -
@@ -93,9 +105,9 @@ class CharacterListCell: UICollectionViewCell {
             var height = internalInsets.top + internalInsets.bottom + descriptionLabelTop
 
             let nameLabelStyle = Style.nameLabel
-            let attributedName = NSAttributedString(string: name, attributes: nameLabelStyle.asTextAttributes())
+            let attributedName = NSAttributedString(string: character.name, attributes: nameLabelStyle.asTextAttributes())
             let descriptionLabelStyle = Style.descriptionLabel
-            let attributedDescription = NSAttributedString(string: description, attributes: descriptionLabelStyle.asTextAttributes())
+            let attributedDescription = NSAttributedString(string: character.description, attributes: descriptionLabelStyle.asTextAttributes())
 
             height += attributedName.fittingSize(
                     withSize: CGSize(width: remainingWidth, height: .greatestFiniteMagnitude),
@@ -105,8 +117,10 @@ class CharacterListCell: UICollectionViewCell {
                     withSize: CGSize(width: remainingWidth, height: .greatestFiniteMagnitude),
                     numberOfLines: descriptionLabelStyle.numberOfLines ?? 0
             ).height
+            let commentPanelHeight = CharacterListCellCommentPanel.Metrics.height(withComment: character.comment, maxWidth: maxWidth)
+            height += commentPanelHeight
 
-            return max(minHeight, height)
+            return max(minHeight + commentPanelHeight, height)
         }
     }
 }

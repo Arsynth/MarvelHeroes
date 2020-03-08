@@ -6,11 +6,20 @@
 import Foundation
 import UIKit
 
+protocol CharacterListCollectionManagerDelegate {
+    func collectionManager(_ manager: CharacterListCollectionManager,
+                           editCharacterComment character: Character,
+                           completion: @escaping ()->())
+}
+
 class CharacterListCollectionManager: NSObject {
     private let collectionView: UICollectionView
     private var characterListCancelable: Cancelable?
+    private let commentSynchronizer = CharacterListCommentSynchronizer()
     private let pageCollector = ResponsePageCollector<Character>()
     private var isActive = false
+
+    var delegate: CharacterListCollectionManagerDelegate?
 
     init(withCollectionView collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -22,6 +31,9 @@ class CharacterListCollectionManager: NSObject {
     }
 
     func activate() {
+        guard isActive == false else {
+            return
+        }
         isActive = true
         loadDataIfNeeded()
     }
@@ -35,7 +47,12 @@ class CharacterListCollectionManager: NSObject {
         characterListCancelable = MarvelAPIAdapter.shared.loadCharacters(offset: pageCollector.count) { [weak self] response in
             switch response {
             case .success(let result):
-                self?.updateCollectionView(withPage: result)
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.commentSynchronizer.fillWithComments(characters: result.results) {
+                    strongSelf.updateCollectionView(withPage: result)
+                }
             case .error(let message):
                 print("OOPS! Error: \(message)")
             }
@@ -75,7 +92,18 @@ extension CharacterListCollectionManager: UICollectionViewDataSource {
         let character = pageCollector[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterListCell.identifier, for: indexPath) as! CharacterListCell
         cell.configure(withCharacter: character)
+        cell.commentDidTapBlock = { [weak self] in
+            self?.editCharacter(atIndexPath: indexPath)
+        }
         return cell
+    }
+
+    private func editCharacter(atIndexPath indexPath: IndexPath) {
+        let character = pageCollector[indexPath.item]
+        delegate?.collectionManager(self, editCharacterComment: character) { [weak self] in
+            self?.commentSynchronizer.updateCommentForCharacter(character: character)
+            self?.collectionView.reloadItems(at: [indexPath])
+        }
     }
 }
 
@@ -83,11 +111,7 @@ extension CharacterListCollectionManager: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let character = pageCollector[indexPath.item]
         var size = CGSize(width: collectionView.frame.size.width, height: 0)
-        size.height = CharacterListCell.Metrics.height(
-                withMaxWidth: size.width,
-                name: character.name,
-                description: character.description
-        )
+        size.height = CharacterListCell.Metrics.height(withCharacter: character, maxWidth: size.width)
         return size
     }
 }

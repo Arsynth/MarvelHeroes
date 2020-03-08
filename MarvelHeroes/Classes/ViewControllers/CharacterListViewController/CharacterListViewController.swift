@@ -44,7 +44,9 @@ class CharacterListViewController: UIViewController {
         collectionView.edge()
         collectionView.backgroundColor = .clear
         collectionView.register(CharacterListCell.self, forCellWithReuseIdentifier: CharacterListCell.identifier)
+
         collectionManager = CharacterListCollectionManager(withCollectionView: collectionView)
+        collectionManager.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,8 +66,18 @@ class CharacterListViewController: UIViewController {
             UIViewStyle(backgroundColor: .white)
         }
     }
+}
 
-    private class Metrics {
-
+extension CharacterListViewController: CharacterListCollectionManagerDelegate {
+    func collectionManager(_ manager: CharacterListCollectionManager,
+                           editCharacterComment character: Character,
+                           completion: @escaping () -> ()) {
+        let model = CommentEditorViewController.Model(withCharacter: character, completionWithNewComment: { [weak self] comment in
+            character.comment = comment
+            completion()
+            self?.navigationController?.popViewController(animated: true)
+        })
+        let editorVC = CommentEditorViewController(withModel: model)
+        navigationController?.pushViewController(editorVC, animated: true)
     }
 }
