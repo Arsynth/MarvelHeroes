@@ -18,6 +18,7 @@ class CharacterListCollectionManager: NSObject {
     private let commentSynchronizer = CharacterListCommentSynchronizer()
     private let pageCollector = ResponsePageCollector<Character>()
     private var isActive = false
+    private let refreshControl = UIRefreshControl()
 
     var delegate: CharacterListCollectionManagerDelegate?
 
@@ -28,6 +29,14 @@ class CharacterListCollectionManager: NSObject {
 
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshControlFired(_:)), for: .valueChanged)
+    }
+
+    @objc private func refreshControlFired(_ sender: Any) {
+        characterListCancelable?.cancel()
+        characterListCancelable = nil
+        loadDataIfNeeded(isRefresh: true)
     }
 
     func activate() {
@@ -38,19 +47,24 @@ class CharacterListCollectionManager: NSObject {
         loadDataIfNeeded()
     }
 
-    func loadDataIfNeeded() {
+    func loadDataIfNeeded(isRefresh: Bool = false) {
         guard characterListCancelable == nil,
               isActive == true,
                pageCollector.isDataExhausted == false else {
             return
         }
-        characterListCancelable = MarvelAPIAdapter.shared.loadCharacters(offset: pageCollector.count) { [weak self] response in
+        let offset = isRefresh ? 0 : pageCollector.count
+        characterListCancelable = MarvelAPIAdapter.shared.loadCharacters(offset: offset) { [weak self] response in
             switch response {
             case .success(let result):
                 guard let strongSelf = self else {
                     return
                 }
                 strongSelf.commentSynchronizer.fillWithComments(characters: result.results) {
+                    if isRefresh {
+                        strongSelf.refreshControl.endRefreshing()
+                        strongSelf.pageCollector.reset()
+                    }
                     strongSelf.updateCollectionView(withPage: result)
                 }
             case .error(let message):

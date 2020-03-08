@@ -32,7 +32,7 @@ class ResponsePageCollector<T> {
         }
     }
 
-    func clear() {
+    func reset() {
         objects = []
         isDataExhausted = false
     }
