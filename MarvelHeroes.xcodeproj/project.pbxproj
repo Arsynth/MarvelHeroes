@@ -10,6 +10,7 @@
 		10242012ACF35EE4D07DD600 /* CharacterListCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102428127DB001AA656AA66C /* CharacterListCollectionManager.swift */; };
 		1024209A3C4670E594742705 /* UITextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024230024D912156C09BBBD /* UITextFieldStyle.swift */; };
 		102420E24CFCC9EEC1B31C13 /* UIButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102424A8396A7E781EF90EEC /* UIButtonStyle.swift */; };
+		10242130655C6026D03ECD2F /* KeyboardControlHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242B9ED946006E7569D272 /* KeyboardControlHelper.swift */; };
 		102421651CF320BE84CB023E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242CF2F2B40B5552659984 /* SceneDelegate.swift */; };
 		102421E7B19FF0C9FF4A18C5 /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102424F65B5CB3E5AA5D8253 /* CharacterListCell.swift */; };
 		102422CC7AAA467CA0CCEB85 /* UIViewController+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024202F38D5401C71C4C9ED /* UIViewController+Container.swift */; };
@@ -26,6 +27,7 @@
 		10242715C175E2D60122E36E /* CharacterListCellCommentPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102424C2D7A8368F3F86D499 /* CharacterListCellCommentPanel.swift */; };
 		1024279459369BD7D817575C /* MarvelHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242B68ECB016F9C9EEB668 /* MarvelHeroesTests.swift */; };
 		1024279CAC4F3F2372931EED /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102428A69935C909BEE2398A /* CharacterListViewController.swift */; };
+		102427C23D2029447768E0A2 /* Notification+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242FAB0E213FF018748FD8 /* Notification+Keyboard.swift */; };
 		102427F8A51F9A32FC6AD7F9 /* DebugKeyStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242752A1F41C89AD47DEAE /* DebugKeyStoreManager.swift */; };
 		1024284832BA82320FB48AE2 /* NSManagedObject+EntityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242D8D816F3376B9E481CD /* NSManagedObject+EntityName.swift */; };
 		1024286C19A5969DE3A10E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10242F0776E060FCEF72C716 /* LaunchScreen.storyboard */; };
@@ -38,6 +40,7 @@
 		10242C9D8668C75EADF0ACD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102421F75A92005DBA7F39A8 /* AppDelegate.swift */; };
 		10242CAE5458513DD0CFE8E0 /* CharacterListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102425C4D5D6EA044E427775 /* CharacterListResponse.swift */; };
 		10242E103503B773EE1BB550 /* Dictionary+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242F112523309FD72DD978 /* Dictionary+Additions.swift */; };
+		10242FD3FFF5B6CB59526D1B /* LayoutKeyboardControlHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10242F0B02FC3F3CA50309E3 /* LayoutKeyboardControlHelper.swift */; };
 		3C7C46AB09E8C9981F2DBF5F /* Pods_MarvelHeroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2F8742381C47074BAFE54B /* Pods_MarvelHeroesTests.framework */; };
 		94BF5004CB71BADB013BC47C /* Pods_MarvelHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75D2D6A9AFE850435675933 /* Pods_MarvelHeroes.framework */; };
 /* End PBXBuildFile section */
@@ -83,12 +86,15 @@
 		10242AFBF4BD2F0B332BF653 /* UIViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewStyle.swift; sourceTree = "<group>"; };
 		10242B68ECB016F9C9EEB668 /* MarvelHeroesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroesTests.swift; sourceTree = "<group>"; };
 		10242B9DA9C5C8468CC59606 /* NSAttributedString+BoundingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+BoundingSize.swift"; sourceTree = "<group>"; };
+		10242B9ED946006E7569D272 /* KeyboardControlHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardControlHelper.swift; sourceTree = "<group>"; };
 		10242C251DDC8F60369CE1D0 /* MarvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10242CBD80AB44F6DEB3F118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		10242CF2F2B40B5552659984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		10242D8D816F3376B9E481CD /* NSManagedObject+EntityName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+EntityName.swift"; sourceTree = "<group>"; };
 		10242DA540EB20F25CC4E0A2 /* CharacterListCommentSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListCommentSynchronizer.swift; sourceTree = "<group>"; };
+		10242F0B02FC3F3CA50309E3 /* LayoutKeyboardControlHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutKeyboardControlHelper.swift; sourceTree = "<group>"; };
 		10242F112523309FD72DD978 /* Dictionary+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Additions.swift"; sourceTree = "<group>"; };
+		10242FAB0E213FF018748FD8 /* Notification+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Keyboard.swift"; sourceTree = "<group>"; };
 		46CB01151123ED4A74379E34 /* Pods-MarvelHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.release.xcconfig"; sourceTree = "<group>"; };
 		9EE31282755937E596E9FCF9 /* Pods-MarvelHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.debug.xcconfig"; sourceTree = "<group>"; };
 		AB2F8742381C47074BAFE54B /* Pods_MarvelHeroesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelHeroesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +152,14 @@
 				102424A8396A7E781EF90EEC /* UIButtonStyle.swift */,
 			);
 			path = Stylesheet;
+			sourceTree = "<group>";
+		};
+		10242105DDEBE9F654E53C8A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				102429460D1D5002D3D8AA5C /* Keyboard */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		1024210F6B0A2A126B3248A2 = {
@@ -243,6 +257,7 @@
 				1024203779E75EAA49D4ECC5 /* UI */,
 				102422AC9C7A561A3EF74AED /* Resources */,
 				10242974B754D587111D025B /* Text */,
+				10242105DDEBE9F654E53C8A /* Helpers */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -253,6 +268,16 @@
 				10242949FF540940BDD5FB6D /* KeysEnterViewController.swift */,
 			);
 			path = KeysEnterViewController;
+			sourceTree = "<group>";
+		};
+		102429460D1D5002D3D8AA5C /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				10242B9ED946006E7569D272 /* KeyboardControlHelper.swift */,
+				10242F0B02FC3F3CA50309E3 /* LayoutKeyboardControlHelper.swift */,
+				10242FAB0E213FF018748FD8 /* Notification+Keyboard.swift */,
+			);
+			path = Keyboard;
 			sourceTree = "<group>";
 		};
 		10242974B754D587111D025B /* Text */ = {
@@ -545,6 +570,9 @@
 				102421E7B19FF0C9FF4A18C5 /* CharacterListCell.swift in Sources */,
 				10242715C175E2D60122E36E /* CharacterListCellCommentPanel.swift in Sources */,
 				102425EE796EE886C29985AF /* CommentEditorViewController.swift in Sources */,
+				10242130655C6026D03ECD2F /* KeyboardControlHelper.swift in Sources */,
+				10242FD3FFF5B6CB59526D1B /* LayoutKeyboardControlHelper.swift in Sources */,
+				102427C23D2029447768E0A2 /* Notification+Keyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-protocol CharacterListCollectionManagerDelegate {
+protocol CharacterListCollectionManagerDelegate: class {
     func collectionManager(_ manager: CharacterListCollectionManager,
                            editCharacterComment character: Character,
                            completion: @escaping ()->())
@@ -20,7 +20,7 @@ class CharacterListCollectionManager: NSObject {
     private var isActive = false
     private let refreshControl = UIRefreshControl()
 
-    var delegate: CharacterListCollectionManagerDelegate?
+    weak var delegate: CharacterListCollectionManagerDelegate?
 
     init(withCollectionView collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -50,7 +50,7 @@ class CharacterListCollectionManager: NSObject {
     func loadDataIfNeeded(isRefresh: Bool = false) {
         guard characterListCancelable == nil,
               isActive == true,
-               pageCollector.isDataExhausted == false else {
+              (pageCollector.isDataExhausted == false || isRefresh == true) else {
             return
         }
         let offset = isRefresh ? 0 : pageCollector.count

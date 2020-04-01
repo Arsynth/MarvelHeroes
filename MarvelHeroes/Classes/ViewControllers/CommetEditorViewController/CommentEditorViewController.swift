@@ -8,8 +8,10 @@ import UIKit
 
 class CommentEditorViewController: UIViewController {
     let model: Model
+    private var contentView: UIView!
     private var textView: UITextView!
     private var doneButton: UIButton!
+    private var keyboardHelper: LayoutKeyboardControlHelper!
 
     init(withModel model: Model) {
         self.model = model
@@ -26,22 +28,36 @@ class CommentEditorViewController: UIViewController {
 
         Style.view.apply(on: view)
 
+        keyboardHelper = LayoutKeyboardControlHelper(container: view)
+
+        contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(contentView)
+        contentView.edge(anchorDirection: [.top, .horizontal])
+        contentView.bottomAccordingSafeArea(controller: self)
+
         textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(textView)
+        contentView.addSubview(textView)
         textView.text = model.character.comment
+        textView.keyboardDismissMode = .interactive
         Style.textView.apply(on: textView)
         textView.edge(constant: Metrics.internalInsets, anchorDirection: [.top, .horizontal])
 
         doneButton = UIButton(type: .system)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(doneButton)
+        contentView.addSubview(doneButton)
         doneButton.setTitle(Resources.doneTitle, for: .normal)
         doneButton.addTarget(self, action: #selector(CommentEditorViewController.doneButtonTouchUp), for: .touchUpInside)
         AppResources.Stylesheet.defaultButton.apply(on: doneButton)
         doneButton.top(constant: Metrics.doneButtonTop, view: textView)
         doneButton.edge(constant: Metrics.internalInsets, anchorDirection: .horizontal)
-        doneButton.bottomAccordingSafeArea(constant: Metrics.internalInsets.bottom, controller: self)
+        keyboardHelper.layout = doneButton.bottom(constant: Metrics.internalInsets.bottom)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        keyboardHelper.enable()
     }
 
     @objc func doneButtonTouchUp() {
@@ -68,7 +84,7 @@ class CommentEditorViewController: UIViewController {
     }
 
     fileprivate class Metrics {
-        static let internalInsets = UIEdgeInsets(top: 16, left: 20, bottom: 0, right: 20)
+        static let internalInsets = UIEdgeInsets(top: 16, left: 20, bottom: 16, right: 20)
         static let doneButtonTop = CGFloat(10)
     }
 
